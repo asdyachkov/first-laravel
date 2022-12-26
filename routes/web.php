@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,29 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [ArticleController::class, 'index']);
 
-    $list = [
-        ['title'=>'Name 1', 'body'=>'Content 1'],
-        ['title'=>'Name 2', 'body'=>'Content 2']
-    ];
-
-    return view('main',['list' => $list]);
-});
-
-Route::get('/list', function () {
-    $list = json_decode(file_get_contents(public_path().'/articles.json'), true);
-    return view('list', ['list'=>$list]);
-});
-
+//Route::get('/list', function () {
+//    $list = json_decode(file_get_contents(public_path().'/articles.json'), true);
+//    return view('list', ['list'=>$list]);
+//});
+//
 Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/post/{id}', function ($id) {
-    $list = json_decode(file_get_contents(public_path().'/articles.json'), true);
-    return view('post', ['list'=>$list, 'id'=>$id]);
-});
+Route::get('/galery/{full}', [ArticleController::class, 'show']);
+//
+//Route::get('/post/{id}', function ($id) {
+//    $list = json_decode(file_get_contents(public_path().'/articles.json'), true);
+//    return view('post', ['list'=>$list, 'id'=>$id]);
+//});
 
 Route::get('/contacts', function () {
     $contacts = $contact = [
