@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
-
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +26,8 @@ Route::get('/about', function () {
 });
 
 Route::get('/galery/{full}', [ArticleController::class, 'show']);
+Route::get('/registration', [AuthController::class, 'create']);
+Route::post('/signin', [AuthController::class, 'registration']);
 //
 //Route::get('/post/{id}', function ($id) {
 //    $list = json_decode(file_get_contents(public_path().'/articles.json'), true);

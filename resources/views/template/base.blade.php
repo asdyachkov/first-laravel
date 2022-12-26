@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/contacts">Контакты</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/registration">Войти</a>
+                    </li>
                 </ul>
             </div>
         </div>
