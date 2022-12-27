@@ -8,9 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
-
-    protected $appends = ['full_image_url'];
-
     protected $fillable = [
         'date',
         'name',
@@ -19,9 +16,4 @@ class Article extends Model
         'shortDesc',
         'desc',
     ];
-
-    public function getFullImageUrlAttribute($key)
-    {
-        return '/images/'.$this->full_images;
-    }
 }

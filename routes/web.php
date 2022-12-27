@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ArticleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +26,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/galery/{full}', [ArticleController::class, 'show']);
+Route::get('/galery/{full}', [MainController::class, 'show']);
 Route::get('/registration', [AuthController::class, 'create']);
 Route::post('/signin', [AuthController::class, 'registration']);
 //
@@ -44,5 +45,5 @@ Route::get('/contacts', function () {
     return view('/contacts', ['contacts' => $contacts]);
 });
 
-Route::get('/articles', [\App\Http\Controllers\ArticleController::class, 'index']);
-Route::get('/articles/{id}', [\App\Http\Controllers\ArticleController::class, 'get']);
+Route::get('/articles', [\App\Http\Controllers\MainController::class, 'index']);
+Route::get('/articles/{id}', [\App\Http\Controllers\MainController::class, 'get']);

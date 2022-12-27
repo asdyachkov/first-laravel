@@ -5,7 +5,7 @@
 
     <table class="table">
         <thead>
-        <tr class="text-white">>
+        <tr class="text-white">
             <th scope="col">Дата</th>
             <th scope="col">Тема</th>
             <th scope="col">Описание</th>
