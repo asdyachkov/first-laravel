@@ -4,16 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ArticleController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\CommentController;
 
 Route::get('/', [ArticleController::class, 'index']);
 
@@ -44,6 +35,17 @@ Route::get('/contacts', function () {
     ];
     return view('/contacts', ['contacts' => $contacts]);
 });
+
+Route::group(['prefix'=>'/article'], function(){
+    Route::get('/create', [ArticleController::class, 'create']);
+    Route::post('/store', [ArticleController::class, 'store']);
+    Route::get('/show/{id}', [ArticleController::class, 'show'])->name('show');
+    Route::get('/{id}/edit', [ArticleController::class, 'edit']);
+    Route::put('/{id}', [ArticleController::class, 'update']);
+    Route::get('/{id}/delete', [ArticleController::class, 'destroy']);
+});
+
+Route::resource('comment', CommentController::class);
 
 Route::get('/articles', [\App\Http\Controllers\MainController::class, 'index']);
 Route::get('/articles/{id}', [\App\Http\Controllers\MainController::class, 'get']);

@@ -15,12 +15,13 @@
         @foreach($articles as $article)
             <tr class="text-white">
                 <th scope="row">{{$article->date}}</th>
-                <td>{{$article->name}}</td>
+                <td><a href="/article/show/{{$article->id}}">{{$article->name}}</a></td>
                 <td>{{$article->shortDesc}}</td>
             </tr>
         @endforeach
         </tbody>
     </table>
+    {{$articles->links()}}
 @endsection
 
 @section('theme')
