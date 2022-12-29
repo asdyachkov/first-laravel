@@ -18,8 +18,6 @@ Route::get('/about', function () {
 });
 
 Route::get('/galery/{full}', [MainController::class, 'show']);
-Route::get('/registration', [AuthController::class, 'create']);
-Route::post('/signin', [AuthController::class, 'registration']);
 //
 //Route::get('/post/{id}', function ($id) {
 //    $list = json_decode(file_get_contents(public_path().'/articles.json'), true);
@@ -36,7 +34,14 @@ Route::get('/contacts', function () {
     return view('/contacts', ['contacts' => $contacts]);
 });
 
-Route::group(['prefix'=>'/article'], function(){
+Route::get('/auth/registr', [AuthController::class, 'create']);
+Route::post('/auth/registr', [AuthController::class, 'store']);
+Route::get('/auth/login', [AuthController::class, 'login'])->name('login');
+Route::post('/auth/login', [AuthController::class, 'customLogin']);
+Route::get('/auth/logout', [AuthController::class, 'logout']);
+
+
+Route::group(['prefix'=>'/article', 'middleware'=>'auth:sanctum'], function(){
     Route::get('/create', [ArticleController::class, 'create']);
     Route::post('/store', [ArticleController::class, 'store']);
     Route::get('/show/{id}', [ArticleController::class, 'show'])->name('show');

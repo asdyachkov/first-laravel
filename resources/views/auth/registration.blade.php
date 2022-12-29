@@ -13,7 +13,9 @@
         </div>
 
     @endif
-    <form action="/signin" method="post" class="my-5 container">
+    <h1 class="text-center text-muted my-3 pt-5">Регистрация</h1>
+
+    <form action="/auth/registr" method="post" class="my-5 container bg-dark text-white">
         @csrf
         <meta name="csrf-token" content="cbpj1L7ym6fdPJhl5Fc0mH4MMU71gK1zatutgC3d">
         <div class="mb-3">

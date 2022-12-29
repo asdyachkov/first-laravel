@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/about">О нас</a>
+                        <a class="nav-link" aria-current="page" href="/about">О нас</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/contacts">Контакты</a>
@@ -37,9 +37,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/article/create">Создать статью</a>
                     </li>
+                    @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="/registration">Войти</a>
+                        <a class="nav-link" href="/auth/registr">Регистрация</a>
                     </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/auth/login">Войти</a>
+                        </li>
+                    @endguest
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="/auth/logout">Выйти</a>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>
