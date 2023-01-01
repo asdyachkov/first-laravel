@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="text-center text-muted my-4 pt-4">Главная сраница</h1>
 
-    <table class="table">
+    <table class="table container bg-dark text-white">
         <thead>
         <tr class="text-white">
             <th scope="col">Дата</th>

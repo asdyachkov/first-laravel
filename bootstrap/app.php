@@ -52,4 +52,6 @@ $app->singleton(
 |
 */
 
+$app->register(\Illuminate\Mail\MailServiceProvider::class);
+
 return $app;
