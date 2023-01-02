@@ -65,10 +65,15 @@
     @yield('content')
 </main>
 
+<div id="app">
+    <App />
+</div>
+
 <div class="container">
     <footer class="text-center text-muted p-4">
         <p>Cover template as <a >Laboratory work</a> by <a href="https://t.me/@O0A0AAMMM">Дьячков С.А. 211-321</a>.</p>
     </footer>
+    <script src="{{ mix('js/app.js') }}"></script>
 </div>
 
 
