@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\NewArticleNotify;
+use App\Events\NewArticleEvent;
 
 class ArticleController extends Controller
 {
@@ -35,6 +36,7 @@ class ArticleController extends Controller
         $article->save();
         $users = User::where('id', '!=', auth()->id())->get();
         Notification::send($users, new NewArticleNotify($article));
+        event(new NewArticleEvent($article->name));
         return redirect('/');
     }
 

@@ -76,13 +76,13 @@
     </nav>
 </header>
 
-<main>
-    @yield('content')
-</main>
-
 <div id="app">
     <App />
 </div>
+
+<main>
+    @yield('content')
+</main>
 
 <div class="container">
     <footer class="text-center text-muted p-4">
