@@ -28,11 +28,13 @@ class ArticleController extends Controller
         return view('articles/create');
     }
 
+
     public function store(Request $request){
         $this->authorize('create', [self::class]);
 
-        $caches = DB::table('cache')->whereRaw('`key` GLOB :name', ['name'=>'articles:all*[0-9]'])->get();
+        $caches = DB::table('cache')->get();
         foreach($caches as $cache){
+            // Log::alert($cache->key);
             Cache::forget($cache->key);
         }
 
